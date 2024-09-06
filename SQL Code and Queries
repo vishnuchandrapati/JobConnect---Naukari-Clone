@@ -1,0 +1,541 @@
+create database JobConnect;
+
+create table Technical_Table
+(
+   company_name varchar(50) primary key,
+   vacancies int not null check (vacancies>=0),
+   location varchar(50) not null,
+   work_from varchar(50) check (work_from='Office' or work_from='Home'),
+)
+drop table Technical_Table
+
+INSERT INTO Technical_Table (company_name, vacancies, location, work_from) VALUES
+('Tata Consultancy Services', 250, 'Mumbai', 'Office'),
+('Infosys', 400, 'Bangalore', 'Office'),
+('Wipro', 150, 'Pune', 'Home'),
+('HCL Technologies', 300, 'Noida', 'Office'),
+('Tech Mahindra', 200, 'Hyderabad', 'Home'),
+('L&T Infotech', 350, 'Mumbai', 'Office'),
+('Mindtree', 120, 'Bengaluru', 'Home'),
+('Cognizant', 180, 'Chennai', 'Office'),
+('Oracle India', 450, 'Mumbai', 'Home'),
+('Accenture', 280, 'Bangalore', 'Office'),
+('IBM India', 180, 'Pune', 'Home'),
+('TechGig', 220, 'Noida', 'Office'),
+('Happiest Minds', 150, 'Bengaluru', 'Home'),
+('Capgemini', 320, 'Mumbai', 'Office'),
+('Adobe India', 200, 'Noida', 'Home'),
+('Infosys BPM', 400, 'Bengaluru', 'Office'),
+('TCS iON', 350, 'Chennai', 'Home'),
+('Persistent Systems', 300, 'Pune', 'Office'),
+('Mindfire Solutions', 120, 'Bhubaneswar', 'Home'),
+('Hexaware Technologies', 180, 'Mumbai', 'Office'),
+('Mphasis', 450, 'Bangalore', 'Home'),
+('Nagarro', 280, 'Gurgaon', 'Office'),
+('Tally Solutions', 220, 'Bangalore', 'Home'),
+('WNS Global Services', 150, 'Mumbai', 'Office'),
+('Zoho Corporation', 320, 'Chennai', 'Home'),
+('Mastek', 200, 'Mumbai', 'Office'),
+('Sasken Technologies', 400, 'Bangalore', 'Home'),
+('NIIT Technologies', 350, 'Noida', 'Office'),
+('Torry Harris Business Solutions', 300, 'Bangalore', 'Home'),
+('Larsen & Toubro Infotech', 120, 'Mumbai', 'Office'),
+('Mindmill Software', 180, 'Noida', 'Home');
+select * from Technical_Table;
+ create table Vacancies_Table
+ (
+  company_name varchar(50) foreign key references Technical_Table(company_name),
+  role_name varchar(50) not null,
+  vacancies_of_each_role varchar(50)  not null,
+  qualification varchar(50) not null,
+  salary_expected int check(salary_expected>=0) not null,
+  experience varchar(50) not null,
+  location varchar(50) not null,
+  contact_number varchar(50) not null,
+  mail_id varchar(50) not null,
+  )
+  drop table Vacancies_Table
+  insert into Vacancies_Table values
+
+  -- Company: Accenture
+('Accenture', 'Java Developer', '5', 'Computer Science', 600000, '2-5 years', 'Bangalore', '9876543210', 'careers@accenture.com'),
+('Accenture', 'Data Scientist', '3', 'Data Science', 800000, '3-7 years', 'Bangalore', '9876543210', 'careers@accenture.com'),
+('Accenture', 'UI/UX Designer', '4', 'Degree in Design', 500000, '2-4 years', 'Bangalore', '9876543210', 'careers@accenture.com'),
+
+-- Company: Adobe India
+('Adobe India', 'Software Engineer', '6', 'Computer Science', 700000, '2-5 years', 'Noida', '8765432109', 'recruitment@adobe.com'),
+('Adobe India', 'Frontend Developer', '4', 'Web Development', 600000, '3-6 years', 'Noida', '8765432109', 'recruitment@adobe.com'),
+('Adobe India', 'Data Analyst', '3', 'Bachelor''s Degree in Statistics', 500000, '2-4 years', 'Noida', '8765432109', 'recruitment@adobe.com'),
+
+-- Company: Capgemini
+('Capgemini', 'Full Stack Developer', '5', 'Computer Science', 600000, '2-5 years', 'Mumbai', '7654321098', 'careers@capgemini.com'),
+('Capgemini', 'Software Tester', '3', 'Software Engineering', 500000, '3-7 years', 'Mumbai', '7654321098', 'careers@capgemini.com'),
+('Capgemini', 'Business Analyst', '4', 'Business Administration', 550000, '2-4 years', 'Mumbai', '7654321098', 'careers@capgemini.com'),
+
+-- Company: Cognizant
+('Cognizant', 'Data Engineer', '6', 'Information Technology', 700000, '2-5 years', 'Chennai', '6543210987', 'recruitment@cognizant.com'),
+('Cognizant', 'Software Architect', '4', 'Computer Science', 900000, '4-8 years', 'Chennai', '6543210987', 'recruitment@cognizant.com'),
+('Cognizant', 'Network Administrator', '3', 'Degree in Networking', 600000, '3-6 years', 'Chennai', '6543210987', 'recruitment@cognizant.com'),
+
+-- Company: Happiest Minds
+('Happiest Minds', 'Software Developer', '5', 'Computer Science', 600000, '2-5 years', 'Bengaluru', '5432109876', 'careers@happiestminds.com'),
+('Happiest Minds', 'Cloud Engineer', '3', 'Cloud Computing', 800000, '3-7 years', 'Bengaluru', '5432109876', 'careers@happiestminds.com'),
+
+-- Company: HCL Technologies
+('HCL Technologies', 'Software Developer', '6', 'Computer Science', 700000, '2-5 years', 'Noida', '9876543211', 'hr@hcltech.com'),
+('HCL Technologies', 'System Administrator', '4', 'Information Technology', 600000, '3-6 years', 'Noida', '9876543211', 'hr@hcltech.com'),
+('HCL Technologies', 'Data Scientist', '3', 'Data Science', 800000, '4-8 years', 'Noida', '9876543211', 'hr@hcltech.com'),
+
+-- Company: Hexaware Technologies
+('Hexaware Technologies', 'Java Developer', '5', 'Computer Science', 600000, '2-5 years', 'Mumbai', '8765432100', 'careers@hexaware.com'),
+('Hexaware Technologies', 'Quality Analyst', '3', 'Software Engineering', 500000, '2-4 years', 'Mumbai', '8765432100', 'careers@hexaware.com'),
+('Hexaware Technologies', 'Business Consultant', '4', 'Finance', 700000, '3-7 years', 'Mumbai', '8765432100', 'careers@hexaware.com'),
+
+-- Company: IBM
+('IBM India', 'Software Engineer', '6', 'Computer Science', 700000, '2-5 years', 'Pune', '7654321099', 'recruitment@ibm.com'),
+('IBM India', 'Data Engineer', '4', 'Information Technology', 800000, '4-8 years', 'Pune', '7654321099', 'recruitment@ibm.com'),
+('IBM India', 'System Administrator', '5', 'Computer Science', 750000, '3-6 years', 'Pune', '7654321099', 'recruitment@ibm.com'),
+
+-- Company: Infosys
+('Infosys', 'Full Stack Developer', '5', 'Computer Science', 700000, '2-5 years', 'Bengaluru', '6543210988', 'careers@infosys.com'),
+('Infosys', 'Network Administrator', '3', 'Networking', 600000, '3-6 years', 'Bengaluru', '6543210988', 'careers@infosys.com'),
+('Infosys', 'Data Analyst', '4', 'Statistics', 650000, '2-4 years', 'Bengaluru', '6543210988', 'careers@infosys.com'),
+
+-- Company: Infosys BPM
+('Infosys BPM', 'Business Analyst', '5', 'Business Administration', 700000, '2-5 years', 'Chennai', '5432109877', 'recruitment@infosysbpm.com'),
+('Infosys BPM', 'Software Tester', '3', 'Computer Science', 600000, '3-7 years', 'Chennai', '5432109877', 'recruitment@infosysbpm.com'),
+('Infosys BPM', 'UI/UX Designer', '4', 'Design', 650000, '2-4 years', 'Chennai', '5432109877', 'recruitment@infosysbpm.com'),
+
+-- Company: L&T Infotech
+('L&T Infotech', 'Software Developer', '6', 'Computer Science', 700000, '2-5 years', 'Mumbai', '9876543213', 'hr@ltinfotech.com'),
+('L&T Infotech', 'Database Administrator', '4', 'Information Technology', 600000, '3-6 years', 'Mumbai', '9876543213', 'hr@ltinfotech.com'),
+('L&T Infotech', 'Data Scientist', '3', 'Data Science', 800000, '4-8 years', 'Mumbai', '9876543213', 'hr@ltinfotech.com'),
+
+
+-- Company: Larsen & Turbo Infotech
+('Larsen & Toubro Infotech', 'Java Developer', '5', 'Computer Science', 600000, '2-5 years', 'Chennai', '8765432102', 'careers@lntinfotech.com'),
+('Larsen & Toubro Infotech', 'Quality Analyst', '3', 'Software Engineering', 500000, '2-4 years', 'Chennai', '8765432102', 'careers@lntinfotech.com'),
+('Larsen & Toubro Infotech', 'Business Consultant', '4', 'Finance', 700000, '3-7 years', 'Chennai', '8765432102', 'careers@lntinfotech.com'),
+
+-- Company: Mastek
+('Mastek', 'Software Engineer', '6', 'Computer Science', 700000, '2-5 years', 'Mumbai', '7654321097', 'recruitment@mastek.com'),
+('Mastek', 'Frontend Developer', '4', 'Web Development', 600000, '3-6 years', 'Mumbai', '7654321097', 'recruitment@mastek.com'),
+('Mastek', 'Data Analyst', '3', 'Statistics', 500000, '2-4 years', 'Mumbai', '7654321097', 'recruitment@mastek.com'),
+
+-- Company: Mindfire Solutions
+('Mindfire Solutions', 'Full Stack Developer', '5', 'Computer Science', 600000, '2-5 years', 'Bhubaneswar', '6543210986', 'careers@mindfire.com'),
+('Mindfire Solutions', 'Network Administrator', '3', 'Networking', 500000, '3-6 years', 'Bhubaneswar', '6543210986', 'careers@mindfire.com'),
+('Mindfire Solutions', 'Data Engineer', '4', 'Information Technology', 550000, '2-4 years', 'Bhubaneswar', '6543210986', 'careers@mindfire.com'),
+
+-- Company: Mindmill Software
+('Mindmill Software', 'Business Analyst', '5', 'Business Administration', 700000, '2-5 years', 'Noida', '5432109875', 'recruitment@mindmill.com'),
+('Mindmill Software', 'Software Tester', '3', 'Computer Science', 600000, '3-7 years', 'Noida', '5432109875', 'recruitment@mindmill.com'),
+('Mindmill Software', 'UI/UX Designer', '4', 'Design', 650000, '2-4 years', 'Noida', '5432109875', 'recruitment@mindmill.com'),
+
+-- Company: Mindtree
+('Mindtree', 'Software Developer', '6', 'Computer Science', 700000, '2-5 years', 'Bengaluru', '9876543214', 'careers@mindtree.com'),
+('Mindtree', 'System Administrator', '4', 'Information Technology', 600000, '3-6 years', 'Bengaluru', '9876543214', 'careers@mindtree.com'),
+('Mindtree', 'Data Scientist', '3', 'Data Science', 800000, '4-8 years', 'Bengaluru', '9876543214', 'careers@mindtree.com'),
+
+-- Company: Mphasis
+('Mphasis', 'Java Developer', '5', 'Computer Science', 600000, '2-5 years', 'Pune', '8765432103', 'recruitment@mphasis.com'),
+('Mphasis', 'Quality Analyst', '3', 'Software Engineering', 500000, '2-4 years', 'Pune', '8765432103', 'recruitment@mphasis.com'),
+('Mphasis', 'Business Consultant', '4', 'Finance', 700000, '3-7 years', 'Pune', '8765432103', 'recruitment@mphasis.com'),
+
+-- Company: Nagarro
+('Nagarro', 'Software Engineer', '6', 'Computer Science', 700000, '2-5 years', 'Gurgaon', '7654321096', 'careers@nagarro.com'),
+('Nagarro', 'Frontend Developer', '4', 'Web Development', 600000, '3-6 years', 'Gurgaon', '7654321096', 'careers@nagarro.com'),
+('Nagarro', 'Data Analyst', '3', 'Statistics', 500000, '2-4 years', 'Gurgaon', '7654321096', 'careers@nagarro.com'),
+
+-- Company: NIIT Technologies
+('NIIT Technologies', 'Full Stack Developer', '5', 'Computer Science', 600000, '2-5 years', 'Noida', '6543210985', 'recruitment@niittech.com'),
+('NIIT Technologies', 'Network Administrator', '3', 'Networking', 500000, '3-6 years', 'Noida', '6543210985', 'recruitment@niittech.com'),
+('NIIT Technologies', 'Data Engineer', '4', 'Information Technology', 550000, '2-4 years', 'Noida', '6543210985', 'recruitment@niittech.com'),
+
+-- Company: Oracle India
+('Oracle India', 'Business Analyst', '5', 'Business Administration', 700000, '2-5 years', 'Bengaluru', '5432109874', 'careers@oracle.com'),
+('Oracle India', 'Software Tester', '3', 'Computer Science', 600000, '3-7 years', 'Bengaluru', '5432109874', 'careers@oracle.com'),
+('Oracle India', 'UI/UX Designer', '4', 'Design', 650000, '2-4 years', 'Bengaluru', '5432109874', 'careers@oracle.com'),
+
+-- Company: Persistent Systems
+('Persistent Systems', 'Software Developer', '6', 'Computer Science', 700000, '2-5 years', 'Pune', '9876543215', 'careers@persistent.com'),
+('Persistent Systems', 'Database Administrator', '4', 'Information Technology', 600000, '3-6 years', 'Pune', '9876543215', 'careers@persistent.com'),
+('Persistent Systems', 'Data Scientist', '3', 'Data Science', 800000, '4-8 years', 'Pune', '9876543215', 'careers@persistent.com'),
+
+-- Company: Sasken Technologies
+('Sasken Technologies', 'Java Developer', '5', 'Computer Science', 600000, '2-5 years', 'Bengaluru', '8765432104', 'recruitment@sasken.com'),
+('Sasken Technologies', 'Quality Analyst', '3', 'Software Engineering', 500000, '2-4 years', 'Bengaluru', '8765432104', 'recruitment@sasken.com'),
+('Sasken Technologies', 'Business Consultant', '4', 'Finance', 700000, '3-7 years', 'Bengaluru', '8765432104', 'recruitment@sasken.com'),
+
+-- Company: Tally Solutions
+('Tally Solutions', 'Software Engineer', '6', 'Computer Science', 700000, '2-5 years', 'Bengaluru', '7654321095', 'careers@tallysolutions.com'),
+('Tally Solutions', 'Frontend Developer', '4', 'Web Development', 600000, '3-6 years', 'Bengaluru', '7654321095', 'careers@tallysolutions.com'),
+('Tally Solutions', 'Data Analyst', '3', 'Statistics', 500000, '2-4 years', 'Bengaluru', '7654321095', 'careers@tallysolutions.com'),
+
+-- Company: Tata Consultancy Services
+('Tata Consultancy Services', 'Full Stack Developer', '5', 'Computer Science', 600000, '2-5 years', 'Mumbai', '6543210984', 'recruitment@tcs.com'),
+('Tata Consultancy Services', 'Network Administrator', '3', 'Networking', 500000, '3-6 years', 'Mumbai', '6543210984', 'recruitment@tcs.com'),
+('Tata Consultancy Services', 'Data Engineer', '4', 'Information Technology', 550000, '2-4 years', 'Mumbai', '6543210984', 'recruitment@tcs.com'),
+
+-- Company: TCS iON
+('TCS iON', 'Business Analyst', '5', 'Business Administration', 700000, '2-5 years', 'Chennai', '5432109873', 'careers@tcsion.com'),
+('TCS iON', 'Software Tester', '3', 'Computer Science', 600000, '3-7 years', 'Chennai', '5432109873', 'careers@tcsion.com'),
+('TCS iON', 'UI/UX Designer', '4', 'Design', 650000, '2-4 years', 'Chennai', '5432109873', 'careers@tcsion.com'),
+
+-- Company: Tech Mahindra
+('Tech Mahindra', 'Software Developer', '6', 'Computer Science', 700000, '2-5 years', 'Pune', '4321098765', 'recruitment@techmahindra.com'
+),
+
+('Tech Mahindra', 'Database Administrator', '4', 'Information Technology', 600000, '3-6 years', 'Pune', '4321098765', 'recruitment@techmahindra.com'
+),
+
+('Tech Mahindra', 'Data Scientist', '3', 'Data Science', 800000, '4-8 years', 'Pune', '4321098765', 'recruitment@techmahindra.com'
+),
+
+
+-- Company: TechGig
+('TechGig', 'Java Developer', '5', 'Computer Science', 600000, '2-5 years', 'Bengaluru', '3210987654', 'careers@techgig.com'),
+('TechGig', 'Quality Analyst', '3', 'Software Engineering', 500000, '2-4 years', 'Bengaluru', '3210987654', 'careers@techgig.com'),
+('TechGig', 'Business Consultant', '4', 'Finance', 700000, '3-7 years', 'Bengaluru', '3210987654', 'careers@techgig.com'),
+
+-- Company: Torry Harris Business Solutions
+('Torry Harris Business Solutions', 'Software Engineer', '6', 'Computer Science', 700000, '2-5 years', 'Bengaluru', '2109876543', 'recruitment@thbs.com'),
+('Torry Harris Business Solutions', 'Frontend Developer', '4', 'Web Development', 600000, '3-6 years', 'Bengaluru', '2109876543', 'recruitment@thbs.com'),
+('Torry Harris Business Solutions', 'Data Analyst', '3', 'Statistics', 500000, '2-4 years', 'Bengaluru', '2109876543', 'recruitment@thbs.com'),
+
+-- Company: Wipro
+('Wipro', 'Full Stack Developer', '5', 'Computer Science', 600000, '2-5 years', 'Bengaluru', '1098765432', 'careers@wipro.com'),
+('Wipro', 'Network Administrator', '3', 'Networking', 500000, '3-6 years', 'Bengaluru', '1098765432', 'careers@wipro.com'),
+('Wipro', 'Data Engineer', '4', 'Information Technology', 550000, '2-4 years', 'Bengaluru', '1098765432', 'careers@wipro.com'),
+
+-- Company: WNS Global Services
+('WNS Global Services', 'Business Analyst', '5', 'Business Administration', 700000, '2-5 years', 'Mumbai', '0987654321', 'recruitment@wnsgs.com'),
+('WNS Global Services', 'Software Tester', '3', 'Computer Science', 600000, '3-7 years', 'Mumbai', '0987654321', 'recruitment@wnsgs.com'),
+('WNS Global Services', 'UI/UX Designer', '4', 'Design', 650000, '2-4 years', 'Mumbai', '0987654321', 'recruitment@wnsgs.com'),
+
+-- Company: Zoho Corporation
+('Zoho Corporation', 'Software Developer', '6', 'Computer Science', 700000, '2-5 years', 'Chennai', '9876543210', 'careers@zoho.com'),
+('Zoho Corporation', 'Database Administrator', '4', 'Information Technology', 600000, '3-6 years', 'Chennai', '9876543210', 'careers@zoho.com'),
+('Zoho Corporation', 'Data Scientist', '3', 'Data Science', 800000, '4-8 years', 'Chennai', '9876543210', 'careers@zoho.com');
+  create table Users
+  (
+  user_id int primary key check(user_id>=0),
+  first_name varchar(50) not null,
+  last_name varchar(50) not null,
+  email varchar(50) not null,
+  password varchar(50) not null,
+  date_of_birth varchar(50) not null,
+  role_searched varchar(50) not null,
+  location varchar(50) not null,
+  );
+  INSERT INTO Users (user_id, first_name, last_name, email, password, date_of_birth, role_searched, location)
+VALUES
+  (1, 'Aarav', 'Sharma', 'aarav.sharma@gmail.com', 'aarav@123', '1990-01-01', 'Software Developer', 'Bengaluru'),
+  (2, 'Aditi', 'Gupta', 'aditi.gupta@gmail.com', 'aditi#2022', '1992-03-15', 'Business Analyst', 'Mumbai'),
+  (3, 'Ananya', 'Joshi', 'ananya.joshi@gmail.com', 'ananya1!', '1988-07-10', 'Data Scientist', 'Pune'),
+  (4, 'Arjun', 'Verma', 'arjun.verma@gmail.com', 'arjun*567', '1991-09-22', 'Full Stack Developer', 'Bengaluru'),
+  (5, 'Aisha', 'Singh', 'aisha.singh@gmail.com', 'aisha#2023', '1989-05-05', 'Software Tester', 'Chennai'),
+  (6, 'Akash', 'Shah', 'akash.shah@gmail.com', 'akashP@ss', '1995-12-10', 'UI/UX Designer', 'Delhi'),
+  (7, 'Aditya', 'Chopra', 'aditya.chopra@gmail.com', 'aditya123', '1993-08-18', 'Project Manager', 'Mumbai'),
+  (8, 'Avni', 'Kumar', 'avni.kumar@gmail.com', 'avni@2021', '1997-04-25', 'Quality Assurance Engineer', 'Bengaluru'),
+  (9, 'Ashish', 'Rajput', 'ashish.rajput@gmail.com', 'rajput!789', '1994-06-12', 'Software Developer', 'Hyderabad'),
+  (10, 'Anika', 'Gandhi', 'anika.gandhi@gmail.com', 'anika2023', '1996-02-28', 'Data Analyst', 'Pune'),
+  (11, 'Kabir', 'Malhotra', 'kabir.malhotra@gmail.com', 'kabir*123', '1987-11-04', 'Business Analyst', 'Chennai'),
+  (12, 'Kavya', 'Choudhary', 'kavya.choudhary@gmail.com', 'choudhary#456', '1985-09-14', 'Software Engineer', 'Bengaluru'),
+  (13, 'Amit', 'Patel', 'amit.patel@gmail.com', 'amit@123', '1993-06-27', 'Software Developer', 'Mumbai'),
+  (14, 'Anushka', 'Reddy', 'anushka.reddy@gmail.com', 'anushka#2022', '1995-12-15', 'Business Analyst', 'Hyderabad'),
+  (15, 'Aryan', 'Gupta', 'aryan.gupta@gmail.com', 'aryan1!', '1991-03-08', 'Data Scientist', 'Bengaluru'),
+  (16, 'Diya', 'Sharma', 'diya.sharma@gmail.com', 'diya*567', '1988-09-12', 'Full Stack Developer', 'Chennai'),
+  (17, 'Kriti', 'Rajput', 'kriti.rajput@gmail.com', 'kriti#2023', '1990-07-25', 'Software Tester', 'Pune'),
+  (18, 'Neha', 'Verma', 'neha.verma@gmail.com', 'neha123', '1994-08-18', 'Project Manager', 'Mumbai'),
+  (19, 'Pranav', 'Bose', 'pranav.bose@gmail.com', 'pranav@2021', '1998-04-05', 'Quality Assurance Engineer', 'Bengaluru'),
+  (20, 'Rahul', 'Singh', 'rahul.singh@gmail.com', 'singh!789', '1996-01-12', 'Software Developer', 'Hyderabad'),
+  (21, 'Sanjana', 'Shah', 'sanjana.shah@gmail.com', 'sanjana2023', '1993-05-28', 'Data Analyst', 'Pune'),
+  (22, 'Shubham', 'Gupta', 'shubham.gupta@gmail.com', 'shubham*123', '1989-10-04', 'Business Analyst', 'Chennai'),
+  (23, 'Simran', 'Malhotra', 'simran.malhotra@gmail.com', 'malhotra#456', '1991-07-14', 'Software Engineer', 'Bengaluru'),
+  (24, 'Riya', 'Thakur', 'riya.thakur@gmail.com', 'riya@123', '1994-06-21', 'Software Developer', 'Mumbai'),
+  (25, 'Siddharth', 'Sharma', 'siddharth.sharma@gmail.com', 'siddharth#2022', '1996-11-15', 'Business Analyst', 'Delhi'),
+  (26, 'Tanvi', 'Gupta', 'tanvi.gupta@gmail.com', 'tanvi1!', '1992-04-08', 'Data Scientist', 'Bengaluru'),
+  (27, 'Utkarsh', 'Verma', 'utkarsh.verma@gmail.com', 'utkarsh*567', '1989-10-12', 'Full Stack Developer', 'Chennai'),
+  (28, 'Vidya', 'Singh', 'vidya.singh@gmail.com', 'vidya#2023', '1991-08-25', 'Software Tester', 'Pune'),
+  (29, 'Yash', 'Shah', 'yash.shah@gmail.com', 'yashP@ss', '1993-02-10', 'UI/UX Designer', 'Delhi'),
+  (30, 'Zoya', 'Malik', 'zoya.malik@gmail.com', 'zoya123', '1995-09-18', 'Project Manager', 'Mumbai');
+  drop table Users
+  select * from Users
+
+  create table Employee_table
+  (
+    emp_id varchar (50) not null,
+emp_name varchar(50) not null,
+email varchar(50) not null,
+contact_no varchar(50) not null,
+location varchar(50) not null,
+role varchar(50) not null,
+salary varchar(50) check (salary>=0),
+experience varchar(50) not null,
+address varchar(50) not null,
+gender varchar(1) check(gender='m' or gender ='f'),
+hire_date varchar(50) not null,
+);
+
+INSERT INTO Employee_table (emp_id, emp_name, email, contact_no, location, role, salary, experience, address, gender, hire_date)
+VALUES
+  ('101', 'Rahul Sharma', 'rahul.sharma@example.com', '9876543210', 'Mumbai', 'Manager', '50000', '10 years', '123 Main St', 'm', '2022-01-01'),
+  ('102', 'Priya Patel', 'priya.patel@example.com', '8765432109', 'Delhi', 'Developer', '40000', '5 years', '456 Elm St', 'f', '2022-02-15'),
+  ('103', 'Amit Kumar', 'amit.kumar@example.com', '7654321098', 'Bengaluru', 'Engineer', '60000', '8 years', '789 Oak Ave', 'm', '2022-03-10'),
+  ('104', 'Sneha Verma', 'sneha.verma@example.com', '9543210987', 'Chennai', 'Analyst', '35000', '3 years', '321 Pine Rd', 'f', '2022-04-20'),
+  ('105', 'Karan Singh', 'karan.singh@example.com', '8432109876', 'Hyderabad', 'Team Lead', '70000', '12 years', '987 Maple Ln', 'm', '2022-05-05'),
+  ('106', 'Ananya Gupta', 'ananya.gupta@example.com', '7321098765', 'Mumbai', 'Designer', '45000', '4 years', '654 Cedar St', 'f', '2022-06-15'),
+  ('107', 'Rajesh Tiwari', 'rajesh.tiwari@example.com', '9210987654', 'Delhi', 'Tester', '38000', '2 years', '876 Walnut Ave', 'm', '2022-07-25'),
+  ('108', 'Deepika Joshi', 'deepika.joshi@example.com', '8109876543', 'Bengaluru', 'Architect', '80000', '15 years', '543 Oakwood Dr', 'f', '2022-08-10'),
+  ('109', 'Vivek Gupta', 'vivek.gupta@example.com', '7098765432', 'Chennai', 'Consultant', '55000', '7 years', '321 Elmwood Ave', 'm', '2022-09-20'),
+  ('110', 'Neha Sharma', 'neha.sharma@example.com', '9876543211', 'Mumbai', 'Developer', '45000', '6 years', '654 Pine St', 'f', '2022-10-05'),
+  ('111', 'Alok Patel', 'alok.patel@example.com', '8765432108', 'Delhi', 'Manager', '60000', '10 years', '987 Elm St', 'm', '2022-11-15'),
+  ('112', 'Pooja Kapoor', 'pooja.kapoor@example.com', '7654321097', 'Bengaluru', 'Designer', '40000', '4 years', '321 Oak Ave', 'f', '2022-12-25'),
+  ('113', 'Sachin Reddy', 'sachin.reddy@example.com', '9543210986', 'Chennai', 'Engineer', '55000', '7 years', '654 Maple Ln', 'm', '2023-01-01'),
+  ('114', 'Mona Singh', 'mona.singh@example.com', '8432109875', 'Hyderabad', 'Analyst', '35000', '3 years', '876 Cedar St', 'f', '2023-02-15'),
+  ('115', 'Amita Rajput', 'amita.rajput@example.com', '7321098764', 'Mumbai', 'Developer', '50000', '8 years', '789 Walnut Ave', 'f', '2023-03-10'),
+  ('116', 'Rajesh Verma', 'rajesh.verma@example.com', '9210987653', 'Delhi', 'Team Lead', '70000', '12 years', '987 Oakwood Dr', 'm', '2023-04-20'),
+  ('117', 'Anjali Srinivasan', 'anjali.srinivasan@example.com
+', '8109876542', 'Bengaluru', 'Tester', '38000', '2 years', '543 Elm St', 'f', '2023-05-05'),
+
+  ('118', 'Kunal Mehra', 'kunal.mehra@example.com', '7098765431', 'Chennai', 'Architect', '80000', '15 years', '321 Pine Rd', 'm', '2023-06-15'),
+  ('119', 'Rima Dutta', 'rima.dutta@example.com', '9876543220', 'Mumbai', 'Consultant', '60000', '10 years', '654 Cedar St', 'f', '2023-07-25'),
+  ('120', 'Vikram Singh', 'vikram.singh@example.com', '8765432219', 'Delhi', 'Manager', '50000', '6 years', '876 Walnut Ave', 'm', '2023-08-10'),
+  ('121', 'Radhika Iyer', 'radhika.iyer@example.com', '7654322108', 'Bengaluru', 'Developer', '45000', '4 years', '543 Oakwood Dr', 'f', '2023-09-20'),
+  ('122', 'Rohit Malhotra', 'rohit.malhotra@example.com', '9543210997', 'Chennai', 'Engineer', '60000', '8 years', '321 Elm St', 'm', '2023-10-05'),
+  ('123', 'Simran Chawla', 'simran.chawla@example.com', '8432109886', 'Hyderabad', 'Analyst', '35000', '3 years', '654 Pine St', 'f', '2023-11-15'),
+  ('124', 'Abhinav Kumar', 'abhinav.kumar@example.com', '7321098775', 'Mumbai', 'Manager', '70000', '12 years', '987 Elm St', 'm', '2023-12-25'),
+  ('125', 'Shruti Sharma', 'shruti.sharma@example.com', '9210987664', 'Delhi', 'Designer', '40000', '5 years', '321 Oak Ave', 'f', '2024-01-01'),
+  ('126', 'Gaurav Rajan', 'gaurav.rajan@example.com', '8109876553', 'Bengaluru', 'Engineer', '55000', '7 years', '654 Maple Ln', 'm', '2024-02-15'),
+  ('127', 'Smita Kapoor', 'smita.kapoor@example.com', '7098765442', 'Chennai', 'Developer', '50000', '8 years', '876 Cedar St', 'f', '2024-03-10'),
+  ('128', 'Akhil Reddy', 'akhil.reddy@example.com', '9876543231', 'Hyderabad', 'Team Lead', '70000', '10 years', '789 Walnut Ave', 'm', '2024-04-20'),
+  ('129', 'Riya Singhania', 'riya.singhania@example.com', '8765432220', 'Mumbai', 'Tester', '38000', '3 years', '987 Oakwood Dr', 'f', '2024-05-05'),
+  ('130', 'Vijay Tiwari', 'vijay.tiwari@example.com', '7654322119', 'Delhi', 'Architect', '80000', '15 years', '543 Elm St', 'm', '2024-06-15'),
+  ('131', 'Neha Joshi', 'neha.joshi@example.com', '9543211008', 'Bengaluru', 'Consultant', '60000', '9 years', '321 Pine Rd', 'f', '2024-07-25'),
+  ('132', 'Kiran Verma', 'kiran.verma@example.com', '8432109897', 'Chennai', 'Manager', '85000', '11 years', '654 Cedar St', 'm', '2024-08-10'),
+  ('133', 'Deepa Nair', 'deepa.nair@example.com', '7321098786', 'Mumbai', 'Developer', '45000', '6 years', '876 Walnut Ave', 'f', '2024-09-20'),
+  ('134', 'Alok Singh', 'alok.singh@example.com', '9210987675', 'Delhi', 'Designer', '40000', '4 years', '543 Oakwood Dr', 'm', '2024-10-05'),
+  ('135', 'Shweta Sharma', 'shweta.sharma@example.com', '8109876564', 'Bengaluru', 'Engineer', '60000', '8 years', '321 Elm St', 'f', '2024-11-15'),
+  ('136', 'Rajesh Gupta', 'rajesh.gupta@example.com', '7098765453', 'Chennai', 'Analyst', '35000', '3 years', '654 Pine St', 'm', '2024-12-25'),
+  ('137', 'Anita Shah', 'anita.shah@example.com', '9876543240', 'Hyderabad', 'Manager', '70000', '12 years', '987 Elm St', 'f', '2025-01-01'),
+  ('138', 'Manish Kapoor', 'manish.kapoor@example.com', '8765432239', 'Mumbai', 'Developer', '50000', '8 years', '321 Oak Ave', 'm', '2025-02-15'),
+  ('139', 'Neetu Saxena', 'neetu.saxena@example.com', '7654321128', 'Delhi', 'Team Lead', '70000', '10 years', '543 Maple Ln', 'f', '2025-03-10'),
+('140', 'Vivek Sharma', 'vivek.sharma@example.com', '9543211017', 'Bengaluru', 'Tester', '38000', '3 years', '876 Cedar St', 'm', '2025-04-20');
+
+select * from Employee_table
+create table Non_Technical_Table
+(
+company_name varchar(50) foreign  key references Technical_Table (company_name),
+vacancies int not null,
+location_name varchar(50) not null,
+role varchar(50) not null,
+mail_id varchar(50) not null,
+mobile_number varchar(50) not null,
+)
+drop table Non_Technical_Table
+INSERT INTO Non_Technical_Table (company_name, vacancies, location_name, role, mail_id, mobile_number)
+VALUES
+(
+  'Reliance Industries', 10, 'Mumbai', 'Customer Service Representative', 'careers@reliance.com', 9876543210,
+  'Tata Consultancy Services', 15, 'Chennai', 'Business Analyst', 'careers@tcs.com', 9876543211,
+  'Infosys', 20, 'New Delhi', 'Software Engineer', 'careers@infosys.com', 9876543212,
+  'ICICI Bank', 25, 'Bangalore', 'Banker', 'careers@icicibank.com', 9876543213,
+  'HDFC Bank', 30, 'Hyderabad', 'Financial Analyst', 'careers@hdfcbank.com', 9876543214,
+  'Kotak Mahindra Bank', 35, 'Kolkata', 'Wealth Manager', 'careers@kotak.com', 9876543215,
+  'ICICI Lombard', 40, 'Pune', 'Insurance Agent', 'careers@icicilombard.com', 9876543216,
+  'L&T', 45, 'Guwahati', 'Engineer', 'careers@lt.com', 9876543217,
+  'Adani Group', 50, 'Jamshedpur', 'Manager', 'careers@adani.com', 9876543218,
+  'Bharti Airtel', 55, 'Rourkela', 'Sales Executive', 'careers@airtel.com', 9876543219,
+  'Reliance Jio', 60, 'Bhopal', 'Customer Care Executive', 'careers@jio.com', 9876543220,
+  'Amazon', 65, 'Mumbai', 'Software Engineer', 'careers@amazon.com', 9876543221,
+  'Flipkart', 70, 'Chennai', 'Business Analyst', 'careers@flipkart.com', 9876543222,
+  'Paytm', 75, 'New Delhi', 'Software Engineer', 'careers@paytm.com', 9876543223,
+  'Swiggy', 80, 'Bangalore', 'Delivery Executive', 'careers@swiggy.com', 9876543224,
+  'Zomato', 85, 'Hyderabad', 'Customer Care Executive', 'careers@zomato.com', 9876543225,
+  'Ola', 90, 'Kolkata', 'Cab Driver', 'careers@ola.com', 9876543226,
+  'Uber', 95, 'Pune', 'Cab Driver', 'careers@uber.com', 9876543227,
+  'Byjus', 100, 'Guwahati', 'Teacher', 'careers@byjus.com', 9876543228,
+  'Unacademy', 105, 'Jamshedpur', 'Teacher', 'careers@unacademy.com', 9876543229,
+  )
+
+CREATE TABLE Education (
+  user_id INT foreign key references users(user_id),
+  institution VARCHAR(50) not null,
+  degree VARCHAR(50) not null,
+  field_of_study VARCHAR(100) not null,
+  location varchar(50) not null
+  );
+    INSERT INTO Education (user_id, institution, degree, field_of_study, location) VALUES
+  (1, 'Indian Institute of Technology (IIT), Bombay', 'Bachelor of Science', 'Computer Science', 'Mumbai'),
+  (2, 'University of Delhi', 'Master of Business Administration', 'Finance', 'Delhi'),
+  (3, 'Jawaharlal Nehru University (JNU), Delhi', 'Bachelor of Arts', 'English Literature', 'Delhi'),
+  (4, 'Anna University, Chennai', 'Master of Technology', 'Mechanical Engineering', 'Chennai'),
+  (5, 'Indian Institute of Management (IIM), Ahmedabad', 'Bachelor of Commerce', 'Business Administration', 'Ahmedabad'),
+  (6, 'University of Mumbai', 'Master of Science', 'Chemistry', 'Mumbai'),
+  (7, 'University of Calcutta', 'Bachelor of Arts', 'History', 'Kolkata'),
+  (8, 'Delhi Technological University', 'Master of Technology', 'Electrical Engineering', 'Delhi'),
+  (9, 'Indian Statistical Institute (ISI), Kolkata', 'Bachelor of Science', 'Statistics', 'Kolkata'),
+  (10, 'Birla Institute of Technology and Science (BITS)', 'Master of Business Administration', 'Marketing', 'Pilani'),
+  (11, 'Harvard University', 'Master of Business Administration', 'Finance', 'Cambridge'),
+  (12, 'Stanford University', 'Bachelor of Arts', 'Psychology', 'Stanford'),
+  (13, 'University of California, Berkeley', 'Master of Science', 'Electrical Engineering', 'Berkeley'),
+  (14, 'University of Oxford', 'Bachelor of Arts', 'History', 'Oxford, UK'),
+  (15, 'University of Cambridge', 'Master of Philosophy', 'Philosophy', 'UK'),
+  (16, 'University of Toronto', 'Bachelor of Science', 'Physics', 'Canada'),
+  (17, 'McGill University', 'Master of Business Administration', 'Marketing', 'Canada'),
+  (18, 'University of Melbourne', 'Bachelor of Arts', 'English Literature', 'Australia'),
+  (19, 'University of Sydney', 'Master of Science', 'Chemistry', 'Australia'),
+  (20, 'National University of Singapore', 'Bachelor of Business Administration', 'Business Management', 'Singapore'),
+  (21, 'Nanyang Technological University', 'Master of Engineering', 'Civil Engineering', 'Singapore'),
+  (22, 'University of Tokyo', 'Bachelor of Arts', 'History', 'Japan'),
+  (23, 'Kyoto University', 'Master of Science', 'Physics', 'Japan'),
+  (24, 'Peking University', 'Bachelor of Science', 'Computer Science', 'China'),
+  (25, 'Tsinghua University', 'Master of Business Administration', 'Finance', 'China'),
+  (26, 'University of Cape Town', 'Bachelor of Arts', 'Sociology', 'South Africa'),
+  (27, 'Stellenbosch University', 'Master of Science', 'Environmental Science', 'South Africa'),
+  (28, 'University of Sao Paulo', 'Bachelor of Business Administration', 'Business Administration', 'Brazil'),
+  (29, 'Federal University of Rio de Janeiro', 'Master of Engineering', 'Mechanical Engineering', 'Brazil'),
+  (30, 'ETH Zurich', 'Bachelor of Science', 'Computer Science', 'Switzerland');
+  drop table Education
+  select * from Education
+
+  CREATE TABLE Experience (
+  user_id INT foreign key references users(user_id),
+  companies_worked VARCHAR(100) not null,
+  job_title VARCHAR(100) not null,
+  years_of_experience int not null,
+);
+INSERT INTO Experience (user_id, companies_worked, job_title, years_of_experience) VALUES
+  (1, 'Tata Consultancy Services', 'Software Engineer', 3),
+  (2, 'Infosys', 'Business Analyst', 5),
+  (3, 'Wipro', 'Project Manager', 8),
+  (4, 'Accenture', 'Data Scientist', 2),
+  (5, 'HCL Technologies', 'UI/UX Designer', 4),
+  (6, 'IBM', 'Sales Executive', 6),
+  (7, 'Mindtree', 'Marketing Manager', 10),
+  (8, 'Tech Mahindra', 'Quality Assurance Engineer', 3),
+  (9, 'Capgemini', 'Financial Analyst', 7),
+  (10, 'Cognizant', 'HR Specialist', 2),
+  (11, 'Happiest Minds', 'Software Developer', 5),
+  (12, 'Hexaware Technologies', 'Business Consultant', 9),
+  (13, 'Oracle India', 'Data Analyst', 4),
+  (14, 'Persistent Systems', 'Product Manager', 6),
+  (15, 'Sasken Technologies', 'Operations Manager', 11),
+  (16, 'Tally Solutions', 'IT Administrator', 3),
+  (17, 'TechGig', 'Sales Manager', 8),
+  (18, 'Torry Harris Business Solutions', 'Marketing Specialist', 5),
+  (19, 'WNS Global Services', 'Finance Manager', 7),
+  (20, 'Zoho Corporation', 'Software Engineer', 2),
+  (21, 'L&T Infotech', 'Business Analyst', 6),
+  (22, 'Larsen & Turbo Infotech', 'Project Manager', 10),
+  (23, 'Mastek', 'Data Scientist', 3),
+  (24, 'Mindfire Solutions', 'UI/UX Designer', 5),
+  (25, 'Mindmill Software', 'Sales Executive', 8),
+  (26, 'Mindtree', 'Marketing Manager', 4),
+  (27, 'Mphasis', 'Quality Assurance Engineer', 7),
+  (28, 'Nagarro', 'Financial Analyst', 2),
+  (29, 'NIIT Technologies', 'HR Specialist', 6),
+  (30, 'Oracle India', 'Software Engineer', 4);
+
+  select * from Experience
+   drop table Experience                        
+
+CREATE TABLE Internship (
+  company_name VARCHAR(50) foreign key references technical_table(company_name),
+  internship_id INT PRIMARY KEY,
+  job_role VARCHAR(50),
+  location VARCHAR(50),
+  posted_date DATE,
+);
+drop table Internship
+drop table InternshipEnrollment
+
+create table skills_technical(
+ user_id int not null foreign key references users(user_id),
+ skills varchar(50) not null,
+ );
+ INSERT INTO skills_technical(user_id , skills) values
+ (1 , 'Java, Python, C++'),
+ (2 , 'Communication, Analytical skills, Business process'),
+
+  (3, 'Machine Learning, R'),
+  (4, 'JavaScript, Node.js'),
+  (5, 'Manual Testing, Bug Tracking'),
+  (6, 'UI Design, Wireframing'),
+  (7, 'Project Management, Agile'),
+  (8, 'Test Automation, Selenium'),
+  (9, 'C#, .NET'),
+  (10, 'Data Visualization, Excel'),
+  (11, 'Business Analysis, Requirements Gathering'),
+  (12, 'Java, Spring Framework'),
+  (13, 'Python, Django'),
+  (14, 'Data Analysis, Statistical Modeling'),
+  (15, 'Python, TensorFlow'),
+  (16, 'HTML, CSS, JavaScript'),
+  (17, 'Manual Testing, Test Case Design'),
+  (18, 'Project Management, Team Leadership'),
+  (19, 'Software Testing, Test Planning'),
+  (20, 'Java, Hibernate'),
+  (21, 'SQL, Data Mining'),
+  (22, 'Business Analysis, Process Improvement'),
+  (23, 'JavaScript, React'),
+  (24, 'Java, Spring Boot'),
+  (25, 'Data Analysis, Data Visualization'),
+  (26, 'Python, Pandas, NumPy'),
+  (27, 'JavaScript, Angular'),
+  (28, 'Manual Testing, Defect Tracking'),
+  (29, 'UI/UX Design, Prototyping'),
+  (30, 'Project Management, Risk Assessment');
+
+ drop table skills_technical
+ create table skills_internship(
+ internship_id int not null foreign key references users(user_id),
+ skills varchar(50) not null,
+ );
+ drop table skills_internship
+ create table category(
+ internship_id int not null foreign key references internship(internship_id),
+ domain varchar(50) not null,
+ stipend varchar(50) not null check(stipend='paid' or stipend='unpaid'),
+ salary money default 0,
+ loaction varchar(50),
+ );
+ INSERT INTO category (internship_id, domain, stipend, salary, loaction)
+VALUES
+  (1, 'IT', 'paid', 2000.00, 'Mumbai'),
+  (2, 'Business', 'unpaid', 0.00, 'Bangalore'),
+  (3, 'Project Management', 'paid', 2500.00, 'Pune'),
+  (4, 'Data Science', 'paid', 3000.00, 'Chennai'),
+  (5, 'UI/UX Design', 'unpaid', 0.00, 'Noida'),
+  (6, 'Sales and Marketing', 'paid', 2200.00, 'Gurgaon'),
+  (7, 'Digital Marketing', 'unpaid', 0.00, 'Hyderabad'),
+  (8, 'Quality Assurance', 'paid', 2300.00, 'Mumbai'),
+  (9, 'Finance', 'unpaid', 0.00, 'Bangalore'),
+  (10, 'Human Resources', 'paid', 2100.00, 'Pune'),
+  (11, 'Software Testing', 'unpaid', 0.00, 'Chennai'),
+  (12, 'Business Consulting', 'paid', 2400.00, 'Noida'),
+  (13, 'Database', 'paid', 2700.00, 'Gurgaon'),
+  (14, 'Product Management', 'unpaid', 0.00, 'Hyderabad'),
+  (15, 'Operations Management', 'paid', 2600.00, 'Mumbai'),
+  (16, 'IT Administration', 'unpaid', 0.00, 'Bangalore'),
+  (17, 'Sales Management', 'paid', 2150.00, 'Pune'),
+  (18, 'Marketing Specialist', 'unpaid', 0.00, 'Chennai'),
+  (19, 'Finance Management', 'paid', 2800.00, 'Noida'),
+  (20, 'Software Engineering', 'unpaid', 0.00, 'Gurgaon'),
+  (21, 'Business Analysis', 'paid', 2250.00, 'Mumbai'),
+  (22, 'Project Management', 'unpaid', 0.00, 'Bangalore'),
+  (23, 'Data Science', 'paid', 2900.00, 'Pune'),
+  (24, 'UI/UX Design', 'unpaid', 0.00, 'Chennai'),
+  (25, 'Software Development', 'paid', 2050.00, 'Noida'),
+  (26, 'Digital Marketing', 'unpaid', 0.00, 'Hyderabad'),
+  (27, 'Business Analysis', 'paid', 2350.00, 'Mumbai'),
+  (28, 'Project Management', 'unpaid', 0.00, 'Bangalore'),
+  (29, 'Data Science', 'paid', 2950.00, 'Pune'),
+  (30, 'Software Testing', 'unpaid', 0.00, 'Chennai');
+delete from category
+
+
+  select * from category
+ drop table category
+select * from INFORMATION_SCHEMA.tables;
